@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+
+
+	<style type="text/css">
+
+
+	</style>
+</head>
+	
+<body>
+	
+		<script type="text/javascript">
+
+			//Width and height
+			var w = 900;
+			var h = 500;
+
+			//Define map projection
+			var projection = d3.geo.transverseMercator()
+						.center([0, -34.61])
+						.rotate([58.38, 0])
+						.scale((h * 56.5) / 0.2);
+			
+			//Define path generator
+			var path = d3.geo.path()
+					 .projection(projection);
+
+			//Create SVG element
+			var svg = d3.select("body")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
+
+			//Load in topojson data
+			d3.json("prueba1.json", function(error, topology) {
+
+			
+				svg.selectAll("path")
+				   .data(topojson.object(topology, topology.objects.comunas).geometries)
+				   .enter()
+				   .append("path")
+				   .attr("d", path)
+				   .style("stroke", "steelblue");
+			});
+
+		</script>
+
+</body>
+
+</html>
