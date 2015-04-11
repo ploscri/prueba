@@ -38,11 +38,11 @@
 					.attr("height", h);
 
 			//Load in topojson data
-			d3.json("prueba1.json", function(error, topology) {
+			d3.json("barriosW84.json", function(error, topology) {
 
 			
 				svg.selectAll("path")
-				   .data(topojson.object(topology, topology.objects.comunas).geometries)
+				   .data(topojson.object(topology, topology.objects.barrios).geometries)
 				   .enter()
 				   .append("path")
 				   .attr("d", path)
