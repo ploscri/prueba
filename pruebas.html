@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+
+
+	<style type="text/css">
+	.black {
+		fill:grey;
+		stroke:grey;
+		stroke-width:1px;
+	}
+
+
+	/*#tramo_1 {fill:black; stroke:black; stroke-width: 1px}*/
+
+	</style>
+</head>
+	
+<body>
+	
+<svg version="1.1" class="black" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1190.55px" height="841.89px" viewBox="0 0 1190.55 841.89" enable-background="new 0 0 1190.55 841.89"
+	 xml:space="preserve">
+<g>
+	<path class="black" id="tramo_1" d="M513.674,362.197l-78.325-82.557H264.091v42.274h153.091l58.153,61.296L513.674,362.197"/>
+	<polygon class="black" id="tramo_2" points="681.462,404.477 700.638,362.202 513.673,362.202 475.334,383.215 513.438,404.477 	"/>
+	<path class="black" id="tramo_3" d="M839.449,520.867L700.639,362.34l-19.176,42.275l120.354,137.446L839.449,520.867z"/> 
+	<polyline class="black" id="tramo_4" points="839.55,563.143 801.816,542.062 839.449,520.867 926.434,520.867 926.334,563.143 839.55,563.143"/>
+	
+	
+</g>
+</svg>
+	
+
+	
+	
+		<script type="text/javascript">
+
+		d3.select("svg")
+		  .data([4,3,2,1])
+		  .selectAll("polygon, path, polyline", function (d,i) {
+		  		return ("#tramo_" + d); 
+		  		})
+		  .transition().delay( function(d, i) { return i * 150;})
+		  .style("fill","yellow")
+		  .style("stroke","yellow");
+
+		  
+		  
+		</script>
+
+</body>
+
+</html>
